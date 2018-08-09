@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StageManagerScript : MonoBehaviour {
+	private GameObject lastUnitPlaced;
 
-	// Use this for initialization
 	void Start () {
-		
+		lastUnitPlaced = GameObject.Find ("StageUnit3");
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+
+	private void OnTriggerEnter (Collider other) {
+		Debug.Log ("Collision!");
+		//
+		// Translate the collided unit to the end of the last unit placed
+		//
+		other.gameObject.transform.position = new Vector3 (lastUnitPlaced.transform.position.x - lastUnitPlaced.transform.lossyScale.x, lastUnitPlaced.transform.position.y, lastUnitPlaced.transform.position.z);
+
+		other.GetComponent<StageUnitScript> ().setupBlocks ();
+
+		lastUnitPlaced = other.gameObject;
 	}
 }
