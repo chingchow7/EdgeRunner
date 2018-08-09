@@ -52,7 +52,7 @@ public class BlockSet {
 	}
 
 	public void deactivateBlocks () {
-		int deactivateIndex = Random.Range(0, 2);
+		int deactivateIndex = Random.Range(0, 3);
 
 		blockList [deactivateIndex].SetActive (false);
 	}

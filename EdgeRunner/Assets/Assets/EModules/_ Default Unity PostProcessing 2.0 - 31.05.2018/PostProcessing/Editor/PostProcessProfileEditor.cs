@@ -10,7 +10,7 @@ namespace UnityEditor.Rendering.PostProcessing
         void OnEnable()
         {
             m_EffectList = new EffectListEditor(this);
-            m_EffectList.Init(target as PostProcessProfile, serializedObject);
+            //m_EffectList.Init(target as PostProcessProfile, serializedObject);
         }
 
         void OnDisable()
